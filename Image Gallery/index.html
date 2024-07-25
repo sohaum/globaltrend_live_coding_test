@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Gallery with Modal</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="container mx-auto p-8">
+        <h2 class="text-3xl font-bold text-center mb-8">Image Gallery</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            <img src="https://imgs.search.brave.com/2L18VAuZZTauR6cJ6bE0aLHZ8JEtmhdx_t-dYw6yvMs/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9uZXdp/c3R5LmNvbS9wdWJs/aWMvYXNzZXRzL3N0/YXRpYy9pbWFnZXMv/dG9vbHMvY29udGVu/dC8xMDZiYmZiNjRj/OTk1YmQyYWQzMTg2/Nzg2YS1icHNjLWlt/YWdlLXNpemUud2Vi/cA" 
+            alt="Image 1" class="cursor-pointer" onclick="openModal('https://via.placeholder.com/300')">
+            <img src="https://imgs.search.brave.com/2L18VAuZZTauR6cJ6bE0aLHZ8JEtmhdx_t-dYw6yvMs/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9uZXdp/c3R5LmNvbS9wdWJs/aWMvYXNzZXRzL3N0/YXRpYy9pbWFnZXMv/dG9vbHMvY29udGVu/dC8xMDZiYmZiNjRj/OTk1YmQyYWQzMTg2/Nzg2YS1icHNjLWlt/YWdlLXNpemUud2Vi/cA" 
+            alt="Image 2" class="cursor-pointer" onclick="openModal('https://via.placeholder.com/300')">
+            <img src="https://imgs.search.brave.com/2L18VAuZZTauR6cJ6bE0aLHZ8JEtmhdx_t-dYw6yvMs/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9uZXdp/c3R5LmNvbS9wdWJs/aWMvYXNzZXRzL3N0/YXRpYy9pbWFnZXMv/dG9vbHMvY29udGVu/dC8xMDZiYmZiNjRj/OTk1YmQyYWQzMTg2/Nzg2YS1icHNjLWlt/YWdlLXNpemUud2Vi/cA" 
+            alt="Image 3" class="cursor-pointer" onclick="openModal('https://via.placeholder.com/300')">
+            <img src="https://imgs.search.brave.com/2L18VAuZZTauR6cJ6bE0aLHZ8JEtmhdx_t-dYw6yvMs/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9uZXdp/c3R5LmNvbS9wdWJs/aWMvYXNzZXRzL3N0/YXRpYy9pbWFnZXMv/dG9vbHMvY29udGVu/dC8xMDZiYmZiNjRj/OTk1YmQyYWQzMTg2/Nzg2YS1icHNjLWlt/YWdlLXNpemUud2Vi/cA"
+            alt="Image 4" class="cursor-pointer" onclick="openModal('https://via.placeholder.com/300')">
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <div class="bg-white p-4 rounded-lg">
+            <button class="absolute top-2 right-2 text-gray-700" onclick="closeModal()">X</button>
+            <img id="modal-img" src="" alt="Large View">
+        </div>
+    </div>
+
+  <script>
+
+        function openModal(src) {
+            const modal = document.getElementById('modal');
+            const modalImg = document.getElementById('modal-img');
+            modalImg.src = src;
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.add('hidden');
+        }
+
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target === modal) {
+                modal.classList.add('hidden');
+            }
+        });
+  </script>
+</body>
+</html>
